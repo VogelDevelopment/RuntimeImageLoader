@@ -118,7 +118,7 @@ FTexture2DRHIRef FRuntimeRHITexture2DFactory::CreateRHITexture2D_Windows()
                     .SetNumSamples(1)
                     .SetFlags(TextureFlags)
                     .SetInitialState(ERHIAccess::Unknown)
-                    .SetBulkData(&TextureData)
+                    .SetInitActionBulkData(&TextureData)
                 );
 #elif (ENGINE_MAJOR_VERSION == 5) && (ENGINE_MINOR_VERSION > 0)
                 FRHIResourceCreateInfo CreateInfo(TEXT("RuntimeImageReaderTextureData"));

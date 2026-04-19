@@ -80,7 +80,7 @@ FTextureCubeRHIRef FRuntimeRHITextureCubeFactory::CreateTextureCubeRHI_Windows()
                 .SetNumMips(1)
                 .SetFlags(TextureFlags)
                 .SetInitialState(ERHIAccess::Unknown)
-                .SetBulkData(&TextureCubeData)
+                .SetInitActionBulkData(&TextureCubeData)
             );
 #elif (ENGINE_MAJOR_VERSION == 5) && (ENGINE_MINOR_VERSION > 0)
             FRHIResourceCreateInfo CreateInfo(TEXT("RuntimeImageReader_TextureCubeData"));
