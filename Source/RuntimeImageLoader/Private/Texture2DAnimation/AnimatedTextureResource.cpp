@@ -121,7 +121,7 @@ void FAnimatedTextureResource::InitRHI(FRHICommandListBase& RHICmdList)
 	FGifDataResource GifBulkData((void*)FirstFrameData, FrameSize);
 	
 #if (ENGINE_MAJOR_VERSION == 5) && (ENGINE_MINOR_VERSION >= 7)
-    TextureRHI = RHICreateTexture(
+    TextureRHI = RHICmdList.CreateTexture(
         FRHITextureCreateDesc::Create2D(*Name)
         .SetExtent(GetSizeX(), GetSizeY())
         .SetFormat(ImageFormat)

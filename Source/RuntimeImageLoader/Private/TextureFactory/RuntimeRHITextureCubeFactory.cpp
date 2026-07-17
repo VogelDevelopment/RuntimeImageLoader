@@ -73,7 +73,7 @@ FTextureCubeRHIRef FRuntimeRHITextureCubeFactory::CreateTextureCubeRHI_Windows()
         [this, &TextureCubeRHI, &TextureCubeData, TextureFlags]()
         {
 #if (ENGINE_MAJOR_VERSION == 5) && (ENGINE_MINOR_VERSION >= 7)
-            TextureCubeRHI = RHICreateTexture(
+            TextureCubeRHI = FRHICommandListImmediate::Get().CreateTexture(
                 FRHITextureCreateDesc::CreateCube(TEXT("RuntimeImageReader_TextureCubeData"))
                 .SetExtent(ImageData.SizeX)
                 .SetFormat(ImageData.PixelFormat)
