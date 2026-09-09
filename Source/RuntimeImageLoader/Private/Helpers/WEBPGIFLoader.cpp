@@ -160,7 +160,7 @@ bool FWEBPGIFLoader::DecodeGIF(TArray<uint8>&& GifBytes)
 
     uint8_t* DecodedData = nullptr;
 
-#if PLATFORM_WINDOWS
+#if PLATFORM_WINDOWS || PLATFORM_LINUX
     DecodedData = WebPDecodeBGRA(GifBytes.GetData(), GifBytes.Num(), &Width, &Height);  // Unreal on Windows will most often use DirectX so prefer BGRA, otherwise devs should change this line!
 #else
     DecodedData = WebPDecodeRGBA(GifBytes.GetData(), GifBytes.Num(), &Width, &Height);  // Default to RGBA for other platforms (Mobile, Vulkan, etc.)
